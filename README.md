@@ -7,15 +7,25 @@ This is a simple pure PHP CRUD API.
 ![Project Structure](/img/project_structure.png)
 
 ## How to Use?
+1. change variables in db/conn_db.php based on your database configuration
 
-run dev server
+![Project Structure](/img/db_variables.png)
+
+2. run dev server with the following command (linux/mac)
+
 > php -S localhost:8000
+
+3. open one of the HTML file in *client/* to test! :D
+
+__if it does not work:__
+
+change the url of all files in *api/* (directory) to your coresponding development server url.
 
 ## API Routes
 
 ### http://localhost:8000/api/create.php
 
-no paramter required but if included API will return a specific student based on key given
+no parameter required but if included, API will return a specific student based on key given
 
 | parameter     | data type     | requirement  |
 | ------------- | ------------- | ------------ |
