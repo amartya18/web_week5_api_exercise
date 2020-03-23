@@ -27,7 +27,7 @@ no paramter required but if included API will return a specific student based on
 | ------------- | ------------- | ------------ |
 | Studentid     | string        | required     |
 | Name          | string        | required     |
-| pwdStudent    | string        | optional     |
+| pwdStudent    | string        | required     |
 
 ### http://localhost:8000/api/update.php
 
