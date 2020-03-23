@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/css_custom.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <table id="students">
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+        </tr>
+    </table>
+</body>
+<script>
+    let count = 0;
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "http://localhost:8000/api/read.php",
+            success: function (data) {
+                console.log(data);
+                $.each(data['records'], function (key, val) {
+                    console.log(val.Name, count);
+                    $('#students').append(
+                        "<tr><td>" + val.Name + "</td><td>" + val.Studentid + "</td></tr>"
+                    );
+                });
+            }
+        });
+    });
+</script>
+
+</html>
