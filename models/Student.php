@@ -18,7 +18,7 @@ class Student {
 
         $this->studentId = htmlspecialchars(strip_tags($this->studentId)); // striping might be better in create.php
         $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->password = htmlspecialchars(strip_tags($this->password));
+        $this->password = $this->password;
 
         $stmt->bind_param("sss", $this->studentId, $this->name, $this->password); // sss indicates 3 strings being inserted to the db
 
@@ -43,14 +43,19 @@ class Student {
     }
 
     function update() {
-        $stmt = $this->conn->prepare("UPDATE student SET studentid = ?, name = ?, password = ? WHERE no = ?");
-
         $this->studentId = htmlspecialchars(strip_tags($this->studentId)); // striping might be better in create.php
         $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->password = htmlspecialchars(strip_tags($this->password));
         $this->key = htmlspecialchars(strip_tags($this->key));
 
-        $stmt->bind_param("ssss", $this->studentId, $this->name, $this->password, $this->key);
+        if(!empty($this->password)) {
+            $stmt = $this->conn->prepare("UPDATE student SET studentid = ?, name = ?, password = ? WHERE no = ?");
+            $this->password = htmlspecialchars(strip_tags($this->password));
+            $stmt->bind_param("ssss", $this->studentId, $this->name, $this->password, $this->key);
+        } else {
+            $stmt = $this->conn->prepare("UPDATE student SET studentid = ?, name = ? WHERE no = ?");
+            $stmt->bind_param("sss", $this->studentId, $this->name, $this->key);
+        }
+
 
         if($stmt->execute()) {
             return true;

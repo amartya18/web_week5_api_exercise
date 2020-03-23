@@ -3,10 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 include_once '../db/conn_db.php';
-include_once '../items/Student.php';
+include_once '../models/Student.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    echo $_SERVER['REQUEST_METHOD'];
 
     $database = new Database();
     $db = $database->getConnection();
