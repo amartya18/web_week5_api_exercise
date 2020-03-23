@@ -1,9 +1,9 @@
 <?php
 class Database {
     private $servername = "localhost";
-    private $username = "root";
+    private $username = "amartya";
     private $password = "";
-    private $dbname = "php_api";
+    private $dbname = "web_week5_php_api";
 
     public function getConnection() {
         // Create connection

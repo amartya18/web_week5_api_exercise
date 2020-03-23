@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      
     $data = json_decode(file_get_contents("php://input"));
 
-    if(!empty($data->key) && !empty($data->Studentid)) {
+    if(!empty($data->Studentid) && !empty($data->key)) {
         $student->key = (int)$data->key;
-        $student->Studentid = $data->Studentid;
+        $student->studentId = $data->Studentid;
         if($student->delete()){    
             http_response_code(200); // success
             echo json_encode(array("success" => true));

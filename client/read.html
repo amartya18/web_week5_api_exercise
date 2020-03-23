@@ -28,7 +28,7 @@
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "http://localhost/web_week5_api_exercise/api/read.php",
+            url: "http://localhost:8000/api/read.php",
             success: function (data) {
                 console.log(data);
                 $.each(data['records'], function (key, val) {
