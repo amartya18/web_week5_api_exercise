@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Add Students</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form id="my-form">
+        <label>Key</label>
+        <input type="text" id="key"> 
+        <label>Student Id</label>
+        <input type="text" id="studentid">
+        <button type="submit" value="submit">SUBMIT</button> 
+    </form> 
+    <h1 id="test"></h1>
+<script>
+    $('#my-form').on('submit',function(){
+        var studentkey= $("#key").val();
+        studentkey=parseInt(studentkey,10)
+        var studentid=$("#studentid").val();
+        
+        var dataJson = JSON.stringify({
+            key:studentkey,
+            Studentid:studentid,  
+        });
+        $.post("http://localhost/web_week5_api_exercise/api/delete.php",dataJson);
+    });
+   
+</script>
+</body>
+
+</html>

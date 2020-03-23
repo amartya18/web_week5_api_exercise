@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/css_custom.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="container"  style="height: 100vh;">
+        <div class="d-flex align-content-center justify-content-center">
     <table id="students">
         <tr>
             <th>Student ID</th>
             <th>Student Name</th>
         </tr>
     </table>
+</div>
+</div>  
 </body>
 <script>
     let count = 0;
@@ -23,7 +28,7 @@
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "http://localhost:8000/api/read.php",
+            url: "http://localhost/web_week5_api_exercise/api/read.php",
             success: function (data) {
                 console.log(data);
                 $.each(data['records'], function (key, val) {
