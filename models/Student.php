@@ -65,10 +65,11 @@ class Student {
     }
 
     function delete() {
-        $stmt = $this->conn->prepare("DELETE FROM student WHERE no = ?");
+        $stmt = $this->conn->prepare("DELETE FROM student WHERE no = ? OR studentid = ?");
 
-        $this->key = strip_tags($this->key);
-        $stmt->bind_param("i", $this->key);
+        $this->key = htmlspecialchars(strip_tags($this->key));
+        $this->studentId = htmlspecialchars(strip_tags($this->studentId));
+        $stmt->bind_param("is", $this->key, $this->studentId);
 
         if($stmt->execute()) {
             return true;
