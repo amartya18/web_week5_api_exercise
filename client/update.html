@@ -25,6 +25,13 @@ integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="ano
         var studentid=$("#studentid").val();
         var name=$("#name").val();
         var password = $("#password").val();
+        if (password.length==0){
+            var dataJson = JSON.stringify({
+            key:studentkey,
+            Studentid:studentid,
+               Name:name,});
+        }
+        else{
         var dataJson = JSON.stringify({
             key:studentkey,
             Studentid:studentid,
