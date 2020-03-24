@@ -15,15 +15,15 @@ This is a simple pure PHP CRUD API.
 
 > php -S localhost:8000
 
-3. open one of the HTML file in *client/* to test! :D
+3. open one of the HTML file in [/client](/client) to test! :D
 
 __if it does not work:__
 
-change the url of all files in *api/* (directory) to your coresponding development server url.
+change the url of all files in [/api](/api) (directory) to your coresponding development server url.
 
 ## API Routes
 
-### http://localhost:8000/api/create.php
+### http://localhost:8000/api/read.php
 
 no parameter required but if included, API will return a specific student based on key given
 
